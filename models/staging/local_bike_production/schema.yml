@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: stg_local_bike_production__brands
+    description: "This model contains information about the brands sold by local bike in their stores"
+    columns:
+      - name: brand_id
+        description: "Primary key, unique identifier for each brand."
+        tests:
+            - unique
+            - not_null
+      - name: brand_name
+        description: "Naming each brand and linking them to a unique brand id."
+        
+
+
+  - name: stg_local_bike_production__products
+    description: "This model contains information about the each product sold by local bike in their stores"
+    columns:
+      - name: product_id
+        description: "Primary key, unique identifier for each product."
+        tests:
+            - unique
+            - not_null
+      - name: product_name
+        description: "Naming each product and linking them to a unique product id."
+      - name: brand_id
+        description: "Foreign key linking the product to the corresponding brand."
+        tests:
+          - relationships:
+              name: brand_id_foreign_key_in_stg_local_bike_production__products
+              to: ref('stg_local_bike_production__brands')
+              field: brand_id
+      - name: category_id
+        description: "Foreign key linking the product to the corresponding category."
+        tests:
+          - relationships:
+              name: category_id_foreign_key_in_stg_local_bike_production__products
+              to: ref('stg_local_bike_production__category')
+              field: category_id
+      - name: model_year
+        description: "The year of the product's model."
+      - name: list_price
+        description: "The price of each product."
