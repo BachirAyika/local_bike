@@ -60,6 +60,11 @@ models:
   - name: stg_local_bike_production__stocks
     description: "This model contains information about the quantity of products available in each of local bike stores"
     columns:
+      - name: stock_id
+        description: "Primary key for this table."
+        tests:
+          - unique
+          - not_null
       - name: store_id
         description: "Foreign key linking the stock to the corresponding store."
         tests:
