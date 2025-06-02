@@ -112,6 +112,11 @@ models:
   - name: stg_local_bike_sales__order_items
     description: "This model contains information about each item included in an order, including its price, quantity, shipping cost etc."
     columns:
+      - name: order_item_id
+        description: "Primary key for this table."
+        tests:
+          - unique
+          - not_null
       - name: order_id
         description: "Foreign key linking each order id to the corresponding order."
         tests: 
