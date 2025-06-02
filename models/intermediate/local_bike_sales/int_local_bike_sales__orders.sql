@@ -6,7 +6,7 @@ select order_id,
     order_date,
     store_id,
     staff_id,
-    sum(item_quantity) as total_item_quantity,
+    sum(quantity) as total_item_quantity,
     sum(total_order_item_amount) as total_order_amount
 from {{ ref('int_local_bike_sales__order_items') }} AS o
 left join {{ ref('stg_local_bike_sales__customers') }} as c 

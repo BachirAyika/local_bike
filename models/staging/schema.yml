@@ -69,16 +69,16 @@ models:
         description: "Foreign key linking the stock to the corresponding store."
         tests:
           - relationships:
-            name: store_id_foreign_key_in_stg_local_bike_production__stocks
-            to: ref('stg_local_bike_sales__stores')
-            field: store_id
+              name: store_id_foreign_key_in_stg_local_bike_production__stocks
+              to: ref('stg_local_bike_sales__stores')
+              field: store_id
       - name: product_id
         description: "Foreign key linking each product id to the corresponding description."
         tests: 
           - relationships:
-            name: product_id_foreign_key_in_stg_local_bike_production__stocks
-            to: ref('stg_local_bike_production__products')
-            field: product_id
+              name: product_id_foreign_key_in_stg_local_bike_production__stocks
+              to: ref('stg_local_bike_production__products')
+              field: product_id
       - name: quantity
         description: "The quantity of each product in each store."
 
@@ -121,18 +121,18 @@ models:
         description: "Foreign key linking each order id to the corresponding order."
         tests: 
           - relationships:
-            name: order_id_foreign_key_in_stg_local_bike_sales__order_items
-            to: ref('stg_local_bike_sales__orders')
-            field: order_id
+              name: order_id_foreign_key_in_stg_local_bike_sales__order_items
+              to: ref('stg_local_bike_sales__orders')
+              field: order_id
       - name: item_id
         description: "Unique identifier of each item."
       - name: product_id
         description: "Foreign key linking each product to its description."
         tests: 
           - relationships:
-            name: product_id_foreign_key_in_stg_local_bike_sales__order_items
-            to: ref('stg_local_bike_production__products')
-            field: product_id
+              name: product_id_foreign_key_in_stg_local_bike_sales__order_items
+              to: ref('stg_local_bike_production__products')
+              field: product_id
       - name: quantity
         description: "The quantity of each item in the order."
       - name: list_price
@@ -153,9 +153,9 @@ models:
         description: "Foreign key linking each order to the customer who placed it."
         tests: 
           - relationships:
-            name: customer_id_foreign_key_in_stg_local_bike_sales__orders
-            to: ref('stg_local_bike_sales__customers')
-            field: customer_id
+              name: customer_id_foreign_key_in_stg_local_bike_sales__orders
+              to: ref('stg_local_bike_sales__customers')
+              field: customer_id
       - name: order_status
         description: "The status of the order."
       - name: order_date
@@ -168,16 +168,16 @@ models:
         description: "Foreign key linking each order to the store from which it was shipped."
         tests: 
           - relationships:
-            name: store_id_foreign_key_in_stg_local_bike_sales__orders
-            to: ref('stg_local_bike_sales__stores')
-            field: store_id
+              name: store_id_foreign_key_in_stg_local_bike_sales__orders
+              to: ref('stg_local_bike_sales__stores')
+              field: store_id
       - name: staff_id
         description: "Foreign key linking each seller to its description/informations."
         tests: 
           - relationships:
-            name: staff_id_foreign_key_in_stg_local_bike_sales__orders
-            to: ref('stg_local_bike_sales__staffs')
-            field: staff_id
+              name: staff_id_foreign_key_in_stg_local_bike_sales__orders
+              to: ref('stg_local_bike_sales__staffs')
+              field: staff_id
 
 
   - name: stg_local_bike_sales__staffs

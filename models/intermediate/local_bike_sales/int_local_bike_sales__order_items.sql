@@ -6,8 +6,8 @@ select oi.order_id,
     o.store_id,
     o.staff_id,
     oi.product_id,
-    item_quantity,
-    item_price,
+    quantity,
+    list_price,
     discount,
     total_order_item_amount
 from {{ ref('stg_local_bike_sales__order_items') }} AS oi
