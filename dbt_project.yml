@@ -37,5 +37,20 @@ models:
 
 
   local_bike:
+
     staging:
-      +materialized: view
+      materialized: view
+      local_bike_sales:
+        schema: stg_local_bike_sales
+      local_bike_production:
+        schema: stg_local_bike_production
+
+    intermediate:
+      materialized: view
+      local_bike_sales: 
+        schema: int_local_bike_sales
+      google_analytics:
+        schema: int_local_bike_production
+
+    mart:
+      schema: mrt_local_bike

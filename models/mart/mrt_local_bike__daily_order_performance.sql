@@ -1,3 +1,9 @@
+{{
+  config(
+    materialized = 'table'
+  )
+}}
+
 select order_date,
     city,
     state,
