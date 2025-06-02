@@ -151,19 +151,68 @@ models:
       - name: order_date
         description: "The day the order was placed."
       - name: required_date
-        description: "The day the order should ba at the store."
+        description: "The day the order should be at the store."
       - name: shipped_date
-        description: "The quantity of each item in the order."
-      - name: product_id
-        description: "Foreign key linking each product to its description."
+        description: "The day the order is shipped."
+      - name: store_id
+        description: "Foreign key linking each order to the store from which it was shipped."
         tests: 
           - relationships:
-            name: product_id_foreign_key_in_stg_local_bike_sales__order_items
-            to: ref('stg_local_bike_production__products')
-            field: product_id
-      - name: quantity
-        description: "The quantity of each item in the order."
-      - name: list_price
-        description: "The price of each item in the order."
-      - name: discount
-        description: "The amount of discount of each item"
+            name: store_id_foreign_key_in_stg_local_bike_sales__orders
+            to: ref('stg_local_bike_sales__stores')
+            field: store_id
+      - name: staff_id
+        description: "Foreign key linking each seller to its description/informations."
+        tests: 
+          - relationships:
+            name: staff_id_foreign_key_in_stg_local_bike_sales__orders
+            to: ref('stg_local_bike_sales__staffs')
+            field: staff_id
+
+
+  - name: stg_local_bike_sales__staffs
+    description: "This model contains information about each staff member including theirs names, phone number, store_id, etc."
+    columns:
+      - name: staff_id
+        description: "Primary key, unique identifier for each staff member."
+        tests: 
+          - unique
+          - not_null
+      - name: first_name
+        description: "The staff member's first name."
+      - name: last_name
+        description: "The staff member's last name."
+      - name: email
+        description: "The staff member's email address."
+      - name: phone
+        description: "The staff member's phone number."
+      - name: active
+        description: "Wether or not the staff member is active."
+      - name: store_id
+        description: "Id number of the staff member's store."
+      - name: manager_id
+        description: "Id number of the staff member's manager."
+
+
+  - name: stg_local_bike_sales__stores
+    description: "This model contains information about each store including its name, address, id, etc."
+    columns:
+      - name: store_id
+        description: "Primary key, unique identifier for each order."
+        tests: 
+          - unique
+          - not_null
+      - name: store_name
+        description: "The store's name."
+      - name: phone
+        description: "The store's phone number."
+      - name: email
+        description: "The store's email."
+      - name: street
+        description: "The store's street address."
+      - name: city
+        description: "The store's city."
+      - name: state
+        description: "The store's state."
+      - name: zip_code
+        description: "The store's zip code."
